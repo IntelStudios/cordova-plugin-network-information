@@ -48,6 +48,11 @@ NetworkConnection.prototype.getInfo = function (successCallback, errorCallback) 
     exec(successCallback, errorCallback, 'NetworkStatus', 'getConnectionInfo', []);
 };
 
+NetworkConnection.prototype.readInfo = function (successCallback, errorCallback) {
+    exec(successCallback, errorCallback, 'NetworkStatus', 'readConnectionInfo', []);
+};
+
+
 var me = new NetworkConnection();
 var timerId = null;
 var timeout = 500;
