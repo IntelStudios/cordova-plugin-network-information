@@ -38,11 +38,8 @@
 
 - (void)readConnectionInfo:(CDVInvokedUrlCommand*)command
 {
-
-    if (self.internetReach) {
-        self.connectionType = [self w3cConnectionTypeFor:self.internetReach];
-    }
-
+    self.internetReach = [CDVReachability reachabilityForInternetConnection];
+    self.connectionType = [self w3cConnectionTypeFor:self.internetReach];
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:self.connectionType];
 
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
